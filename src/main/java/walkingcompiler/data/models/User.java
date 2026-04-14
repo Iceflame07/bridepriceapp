@@ -12,14 +12,14 @@ import org.springframework.data.annotation.Id;
 public class User {
 
     @Id
-    private String FirstName;
-    private String LastName;
+    private String firstName;
+    private String lastName;
     private String Age;
     private String State;
     private String Town;
     private String Occupation;
-    private String FatherName;
-    private String MotherName;
+    private String fatherName;
+    private String motherName;
     private String DOB;
     private String Gender;
     private String Religion;

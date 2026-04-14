@@ -16,14 +16,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findByFirstName(String FirstName) {
-        return Optional.ofNullable(userRepository.findByFirstName(FirstName))
+    public User findByFirstName(String firstName) {
+        return Optional.ofNullable(userRepository.findByFirstName(firstName))
                 .orElseThrow(() -> new UserNotFoundException("UNKNOWN USER"));
     }
 
     @Override
-    public User findByLastName(String LastName) {
-        return Optional.ofNullable(userRepository.findByLastName(LastName))
+    public User findByLastName(String lastName) {
+        return Optional.ofNullable(userRepository.findByLastName(lastName))
                 .orElseThrow(() -> new UserNotFoundException("UNKNOWN USER"));
     }
 
@@ -50,14 +50,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findByFatherName(String FatherName) {
-        return Optional.ofNullable(userRepository.findByFatherName(FatherName))
+    public User findByFatherName(String fatherName) {
+        return Optional.ofNullable(userRepository.findByFatherName(fatherName))
                 .orElseThrow(() -> new NameNotFoundException("FATHER NOT KNOWN, SEARCH FOR HIM!!!"));
     }
 
     @Override
-    public User findByMotherName(String MotherName) {
-        return Optional.ofNullable(userRepository.findByMotherName(MotherName))
+    public User findByMotherName(String motherName) {
+        return Optional.ofNullable(userRepository.findByMotherName(motherName))
                 .orElseThrow(() -> new UserNotFoundException("MOTHER NOT KNOWN, SEARCH FOR HER!!!"));
     }
 
@@ -85,6 +85,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findByNationality(String Nationality) {
-        return userRepository.findByNationality(Nationality);
+        return Optional.ofNullable(userRepository.findByNationality(Nationality))
+                .orElseThrow(() -> new NationalityNotFoundException("THIS COUNTRY DOES NOT EXIST!!!"));
     }
 }
